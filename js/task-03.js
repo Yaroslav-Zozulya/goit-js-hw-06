@@ -1,78 +1,90 @@
-const images = [
+// const images = [
+//     {
+//         url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//         alt: 'White and Black Long Fur Cat',
+//     },
+//     {
+//         url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//         alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+//     },
+//     {
+//         url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//         alt: 'Group of Horses Running',
+//     },
+// ];
+// const galleryEl = document.querySelector('.gallery');
+
+// const makeGallerySlides = images => {
+//     return images.map(image => {
+//         const galleryImageEl = document.createElement('img');
+//         galleryImageEl.classList.add('gallery-image');
+//         galleryImageEl.src = image.url;
+//         galleryImageEl.alt = image.alt;
+
+//         const galleryItemEl = document.createElement('li');
+//         galleryItemEl.classList.add('galleryItem');
+//         galleryItemEl.append(galleryImageEl);
+
+//         return galleryItemEl;
+//     });
+// };
+// const test = makeGallerySlides(images);
+// galleryEl.append(...test);
+
+const products = [
     {
-        url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        alt: 'White and Black Long Fur Cat',
+        name: 'VDS Server',
+        description:
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, nostrum sint. Odit, ea voluptates delectus vero dignissimos tenetur eum possimus.',
+        price: 2000,
+        available: true,
+        onSale: true,
     },
     {
-        url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+        name: 'VDS Cloud',
+        description:
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, nostrum sint. Odit, ea voluptates delectus vero dignissimos tenetur eum possimus.',
+        price: 1500,
+        available: true,
+        onSale: true,
     },
     {
-        url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        alt: 'Group of Horses Running',
+        name: 'Dedicated Server',
+        description:
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, nostrum sint. Odit, ea voluptates delectus vero dignissimos tenetur eum possimus.',
+        price: 3000,
+        available: true,
+        onSale: true,
+    },
+    {
+        name: 'Hosting',
+        description:
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, nostrum sint. Odit, ea voluptates delectus vero dignissimos tenetur eum possimus.',
+        price: 500,
+        available: true,
+        onSale: true,
     },
 ];
 
-const galleryEl = document.querySelector('.gallery');
+const servers = document.querySelector('.gallery');
 
-const galleryImagesEl = images.map(image => {
-    const galleryImageEl = document.createElement('img');
-    galleryImageEl.classList.add('gallery-image');
-    galleryImageEl.src = image.url;
-    galleryImageEl.alt = image.alt;
+const createServersListEl = ({ name, description, price }) => {
+    const articleEl = document.createElement('li');
+    const titleEl = document.createElement('h2');
+    titleEl.classList.add('product__name');
+    titleEl.textContent = name;
 
-    const galleryItemEl = document.createElement('li');
-    galleryItemEl.classList.add('galleryItem');
-    galleryItemEl.append(galleryImageEl);
+    const descriptionEl = document.createElement('p');
+    descriptionEl.classList.add('product__descr');
+    descriptionEl.textContent = description;
 
-    return galleryItemEl;
-});
-console.log(galleryImagesEl);
-galleryEl.append(...galleryImagesEl);
+    const priceEl = document.createElement('p');
+    priceEl.classList.add('product__price');
+    priceEl.textContent = `Цена: ${price}$`;
 
-// const galleryEl = document.querySelector('.gallery');
+    articleEl.append(titleEl, descriptionEl, priceEl);
+    return articleEl;
+};
 
-// const navItemEl = document.createElement('li');
-// navItemEl.classList.add('nav-item');
-
-// const navItemLinkEl = document.createElement('a');
-// navItemLinkEl.classList.add('nav-item__link');
-// navItemLinkEl.href = '#';
-// navItemLinkEl.textContent = 'четвёртый слайд';
-
-// navItemEl.appendChild(navItemLinkEl);
-
-// galleryEl.appendChild(navItemEl);
-// galleryEl.insertBefore(navItemEl, galleryEl.lastElementChild);
-
-// const colorPickerOptions = [
-//     { label: 'red', color: '#F44336' },
-//     { label: 'green', color: '#4CAF50' },
-//     { label: 'blue', color: '#2196F3' },
-//     { label: 'grey', color: '#607D8B' },
-// ];
-
-// const option = colorPickerOptions[3];
-
-// const buttonEl = document.createElement('button');
-// buttonEl.type = 'button';
-// buttonEl.textContent = option.label;
-// buttonEl.style.backgroundColor = option.color;
-// console.log(buttonEl);
-
-// document.body.append(buttonEl);
-
-// const galleryEl = document.querySelector('.gallery');
-
-// const slides = colorPickerOptions.map(slide => {
-//     const slideEl = document.createElement('button');
-//     slideEl.classList.add('slide');
-//     slideEl.type = 'button';
-//     slideEl.textContent = slide.label;
-//     slideEl.style.backgroundColor = slide.color;
-//     slideEl.style.width = '100px';
-//     slideEl.style.height = '50px';
-//     return slideEl;
-// });
-
-// galleryEl.append(...slides);
+const productsList = products.map(createServersListEl);
+servers.append(...productsList);
