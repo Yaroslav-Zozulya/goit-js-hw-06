@@ -19,6 +19,9 @@ const ingredientsItemsEl = ingredients.map(ingredient => {
 
 ingredientsListEl.append(...ingredientsItemsEl);
 
+const test = document.querySelector('#ingredients');
+console.log(test);
+
 //Была вот такая лабуда. Потом понял что я 100 дёргаю DOM :)
 // function creatListItems(arr) {
 //     const listEl = document.querySelector('#ingredients');
