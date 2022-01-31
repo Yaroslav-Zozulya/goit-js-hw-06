@@ -21,18 +21,3 @@ ingredientsListEl.append(...ingredientsItemsEl);
 
 const test = document.querySelector('#ingredients');
 console.log(test);
-
-//Была вот такая лабуда. Потом понял что я 100 дёргаю DOM :)
-// function creatListItems(arr) {
-//     const listEl = document.querySelector('#ingredients');
-//     const ingredientListEl = [];
-//     arr.forEach(element => {
-//         const listItemEl = document.createElement('li');
-//         listItemEl.textContent = element;
-//         listItemEl.classList.add('item');
-//         ingredientListEl.push(listItemEl);
-//     });
-//     listEl.append(...ingredientListEl);
-// }
-
-// creatListItems(ingredients);
