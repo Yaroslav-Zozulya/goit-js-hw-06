@@ -45,10 +45,6 @@ button {
     max-height: 335px;
 }
 
-#boxes {
-    display: flex;
-    flex-wrap: wrap;
-}
 .box {
     margin: 10px;
 }

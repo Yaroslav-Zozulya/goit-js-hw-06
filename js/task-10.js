@@ -9,28 +9,25 @@ destroyBtnRef.addEventListener('click', onDestroyBtnClick);
 function onCreateBtnRefClick() {
     const amount = inputRef.value;
     amount ? createBoxes(amount) : alert('Введите число');
+    inputRef.value = '';
 }
 
 // Очищаем #boxes и сбрасываем значения width, height до стандартных
 function onDestroyBtnClick() {
-    width = 30;
-    height = 30;
     boxesRef.innerHTML = '';
+    inputRef.value = '';
 }
 
 // Формируем шаблонную строку для добавления в документ
-let width = 30;
-let height = 30;
-
 function createBoxes(amount) {
+    let size = 30;
     const arr = [];
     for (let i = 1; i <= amount; i += 1) {
         const color = getRandomHexColor();
         arr.push(
-            `<div class="box" style="width: ${width}px; height: ${height}px; background-color: ${color}"></div>`,
+            `<div class="box" style="width: ${size}px; height: ${size}px; background-color: ${color}"></div>`,
         );
-        width += 10;
-        height += 10;
+        size += 10;
     }
     boxesRef.insertAdjacentHTML('beforeend', arr.join(''));
 }
