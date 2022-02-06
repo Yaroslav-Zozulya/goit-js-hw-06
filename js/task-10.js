@@ -1,7 +1,3 @@
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-
 const inputRef = document.querySelector('#controls').firstElementChild;
 const createBtnRef = document.querySelector('[data-create]');
 const destroyBtnRef = document.querySelector('[data-destroy]');
@@ -15,14 +11,19 @@ function onCreateBtnRefClick() {
     amount ? createBoxes(amount) : alert('Введите число');
 }
 
+// Очищаем #boxes и сбрасываем значения width, height до стандартных
 function onDestroyBtnClick() {
+    width = 30;
+    height = 30;
     boxesRef.innerHTML = '';
 }
 
+// Формируем шаблонную строку для добавления в документ
+let width = 30;
+let height = 30;
+
 function createBoxes(amount) {
     const arr = [];
-    let width = 30;
-    let height = 30;
     for (let i = 1; i <= amount; i += 1) {
         const color = getRandomHexColor();
         arr.push(
@@ -31,5 +32,10 @@ function createBoxes(amount) {
         width += 10;
         height += 10;
     }
-    boxesRef.insertAdjacentHTML('afterbegin', arr.join(''));
+    boxesRef.insertAdjacentHTML('beforeend', arr.join(''));
+}
+
+// Функция рандомного HEX цвета
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
